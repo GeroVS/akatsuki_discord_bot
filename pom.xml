@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.KetsuVs.McDiscordBot</groupId>
+    <artifactId>Akatsuki</artifactId>
+    <version>1.33-SNAPSHOT</version> 
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+     
+    <repositories>
+        <repository> <!-- This repo fixes issues with transitive dependencies -->
+            <id>jcenter</id>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+    <id>central</id>
+    <name>bintray</name>
+    <url>http://jcenter.bintray.com</url>
+  </repository>
+    </repositories>
+    <dependencies>
+        
+        <dependency>
+            <groupId>co.kaioru</groupId>
+            <artifactId>distort</artifactId>
+            <version>-SNAPSHOT</version>
+            <exclusions>
+            	<exclusion>
+            		<groupId>com.github.austinv11</groupId>
+            		<artifactId>Discord4j</artifactId>
+            	</exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            
+        <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.11.2</version>
+        </dependency>
+
+         <dependency>
+            <groupId>com.sedmelluq</groupId>
+            <artifactId>lavaplayer</artifactId>
+            <version>1.3.5</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.9.3</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.googlecode.soundlibs</groupId>
+            <artifactId>mp3spi</artifactId>
+            <version>1.9.5.4</version>
+        </dependency>
+  
+  <dependency> 
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-jdk14</artifactId>
+  <version>1.7.25</version>
+  </dependency>
+
+<dependency> 
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-api</artifactId>
+  <version>1.7.25</version>
+</dependency>
+  
+  <dependency>
+    <groupId>com.discord4j</groupId> <!-- However our packages are all under sx.blah in version 2.x! -->
+    <artifactId>Discord4J</artifactId>
+    <version>2.10.1</version>
+  </dependency>
+  
+    </dependencies>
+    
+    <build>
+    <sourceDirectory>src</sourceDirectory>
+    	<plugins>
+    		<plugin>
+    			<groupId>org.apache.maven.plugins</groupId>
+    			<artifactId>maven-shade-plugin</artifactId>
+    			<version>2.3</version>
+    		</plugin>
+    		<plugin>
+      <!-- Build an executable JAR -->
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.1.0</version>
+      <configuration>
+        <archive>
+          <manifest>
+            <mainClass>exec.Main</mainClass>
+          </manifest>
+        </archive>
+      </configuration>
+    </plugin>
+    	</plugins>
+    </build>
+</project>
